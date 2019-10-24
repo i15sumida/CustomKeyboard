@@ -11,12 +11,25 @@ import UIKit
 
 class ViewController: UIViewController, KeyboardDelegate {
 
+    // MARK:- 変数定義
+    
     @IBOutlet var textView: UITextView!
     
     @IBOutlet var testLabel: UILabel!
     
+    // MARK:- override func
+    
+    //textView 以外のところをタップするとキーボードが隠れる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        textView.resignFirstResponder()
+    }
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //キーボードを隠すやつ
+        textView.delegate = self as? UITextViewDelegate
         
         // textViewに枠線をつける
         textView.layer.borderColor = UIColor.lightGray.cgColor
@@ -26,37 +39,19 @@ class ViewController: UIViewController, KeyboardDelegate {
         textView.font = UIFont.systemFont(ofSize: 18)
 
         
-        // initialize custom keyboard
+        // CustomKeyboardを表示
         let keyboardView = Keyboard(frame: CGRect(x: 0, y: 0, width: 0, height: 300))
         keyboardView.delegate = self // the view controller will be notified by the keyboard whenever a key is tapped
-    
         textView.inputView = keyboardView
-        
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.didSwipe(_:)))
-        rightSwipe.direction = .right
-        self.testLabel.addGestureRecognizer(rightSwipe)
-        
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.didSwipe(_:)))
-        leftSwipe.direction = .left
-        self.testLabel.addGestureRecognizer(leftSwipe)
-        
     }
     
-    // required method for keyboard delegate protocol
+    // MARK:- その他メソッド
+    
+    //keyboard delegate protocol　にメソッドを要求
     func keyWasTapped(character: String) {
             textView.insertText(character)
         //Bluetoothに送るメソッドを書く予定
+        
     }
     
-    //スワイプ時の呼び出しメソッド
-    @objc func didSwipe(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == .right {
-            testLabel.text = "右"
-            textView.text += "右"
-        }
-        else if sender.direction == .left {
-            testLabel.text = "左"
-            textView.text += "左"
-        }
-    }
 }

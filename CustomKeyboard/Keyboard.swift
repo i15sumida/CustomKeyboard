@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-// The view controller will adopt this protocol (delegate)
-// and thus must contain the keyWasTapped method
 protocol KeyboardDelegate: class {
     func keyWasTapped(character: String)
 }
@@ -40,17 +38,17 @@ class Keyboard: UIView {
     func initializeSubviews() {
         
         if(KeyFlag == 100){
-            let xibFileName = "Keyboard" // xib extention not included
+            let xibFileName = "Keyboard"
             let view = Bundle.main.loadNibNamed(xibFileName, owner: self, options: nil)?[0] as! UIView
                 self.addSubview(view)
                 view.frame = self.bounds
         }else if(KeyFlag == 200){
-            let xibFileName = "Keyboard2" // xib extention not included
+            let xibFileName = "Keyboard2"
             let view = Bundle.main.loadNibNamed(xibFileName, owner: self, options: nil)?[0] as! UIView
                 self.addSubview(view)
                 view.frame = self.bounds
         }else if(KeyFlag == 300){
-            let xibFileName = "Keyboard3" // xib extention not included
+            let xibFileName = "Keyboard3"
             let view = Bundle.main.loadNibNamed(xibFileName, owner: self, options: nil)?[0] as! UIView
                 self.addSubview(view)
                 view.frame = self.bounds
@@ -81,9 +79,9 @@ class Keyboard: UIView {
                 self.delegate?.keyWasTapped(character: " ")
                 
             }else if(tagnumber.tag == 4){                               //Deleteキー
-                self.delegate?.keyWasTapped(character: "\u{08}")
-                self.delegate?.keyWasTapped(character: "")
                 
+            }else if(tagnumber.tag == 5){                               //レジスタ(G0)キー
+                self.delegate?.keyWasTapped(character: "GO")
             }
         }
         //------------------------Keyboard(tagが100以上200未満)--------------------------//
@@ -128,7 +126,7 @@ class Keyboard: UIView {
             KeyFlag = 300;
             initializeSubviews()
         //------------------------Keyboard3(tagが300以上)--------------------------//
-        }else if(tagnumber.tag == 300){                              //Keyboard3 -> Keyboard
+        }else if(tagnumber.tag == 300){                             //Keyboard3 -> Keyboard
             print("Keyboard3 -> Keyboard")
             KeyFlag = 100;
             initializeSubviews()
@@ -139,5 +137,94 @@ class Keyboard: UIView {
             initializeSubviews()
         }
     }
+
+    //----------------------------スワイプアクション-----------------------------------------//
     
+    @IBAction func LD(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "LD\t")    //LD + tab
+    }
+    @IBAction func ST(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "ST\t")    //ST + tab
+    }
+    @IBAction func SUB(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "SUB\t")   //SUB + tab
+    }
+    @IBAction func CMP(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "CMP\t")   //CMP + tab
+    }
+    @IBAction func OR(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "OR\t")    //OR + tab
+    }
+    @IBAction func XOR(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "XOR\t")   //XOR + tab
+    }
+    @IBAction func SHLL(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "SHLL\t")  //SHLL + tab
+    }
+    @IBAction func SHRA(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "SHRA\t")  //SHRA + tab
+    }
+    @IBAction func SHRL(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "SHRL\t")  //SHRL + tab
+    }
+    @IBAction func JC(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "JC\t")    //JC + tab
+    }
+    @IBAction func JM(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "JM\t")    //JM + tab
+    }
+    @IBAction func CALL(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "CALL\t")  //CALL + tab
+    }
+    @IBAction func JNC(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "JNC\t")   //JNC + tab
+    }
+    @IBAction func JNM(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "JNM\t")   //JNM + tab
+    }
+    @IBAction func OUT(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "OUT\t")   //OUT + tab
+    }
+    @IBAction func PUSHF(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "PUSHF\t") //PUSHF + tab
+    }
+    @IBAction func POPF(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "POPF\t")  //POPF + tab
+    }
+    @IBAction func DI(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "DI")      //DI
+    }
+    @IBAction func RETI(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "RETI")    //RETI
+    }
+    @IBAction func HALT(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "HALT")    //HALT
+    }
+    @IBAction func G1_Keyboard(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "G1")      //G1
+    }
+    @IBAction func G2_Keyboard(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "G2")      //G2
+    }
+    @IBAction func SP_Keyboard(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "SP")      //SP
+    }
+    @IBAction func G1_Keyboard2(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "G1")      //G1
+    }
+    @IBAction func G2_Keyboard2(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "G2")      //G2
+    }
+    @IBAction func SP_Keyboard2(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "SP")      //SP
+    }
+    @IBAction func G1_Keyboard3(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "G1")      //G1
+    }
+    @IBAction func G2_Keyboard3(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "G2")      //G2
+    }
+    @IBAction func SP_Keyboard3(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "SP")      //SP
+    }
 }
