@@ -18,8 +18,6 @@
 		49C7A8C5234DB17200D6D0F9 /* Keyboard2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C7A8C4234DB17200D6D0F9 /* Keyboard2.xib */; };
 		49E9029A2358265700DAE063 /* Keyboard3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E902992358265700DAE063 /* Keyboard3.xib */; };
 		49E9029C2358376F00DAE063 /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E9029B2358376F00DAE063 /* Keyboard.xib */; };
-		49E902EF235987B900DAE063 /* UpDownCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E902EE235987B900DAE063 /* UpDownCountButton.swift */; };
-		49E902F1235987C800DAE063 /* UpDownCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E902F0235987C700DAE063 /* UpDownCountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +55,6 @@
 		49C7A8C4234DB17200D6D0F9 /* Keyboard2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Keyboard2.xib; sourceTree = "<group>"; };
 		49E902992358265700DAE063 /* Keyboard3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Keyboard3.xib; sourceTree = "<group>"; };
 		49E9029B2358376F00DAE063 /* Keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Keyboard.xib; sourceTree = "<group>"; };
-		49E902EE235987B900DAE063 /* UpDownCountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpDownCountButton.swift; path = ../../Flick/Flick/UpDownCountButton.swift; sourceTree = "<group>"; };
-		49E902F0235987C700DAE063 /* UpDownCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpDownCountView.swift; path = ../../Flick/Flick/UpDownCountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +111,6 @@
 				49E902992358265700DAE063 /* Keyboard3.xib */,
 				490A3BD7234C589400FCB58B /* Keyboard.swift */,
 				4958E94D233C74540071DF9E /* Storyboard.storyboard */,
-				49E902F0235987C700DAE063 /* UpDownCountView.swift */,
-				49E902EE235987B900DAE063 /* UpDownCountButton.swift */,
 				490A3BDC234C597D00FCB58B /* ViewController.swift */,
 				49A7A7C822D84E1D0039449E /* Assets.xcassets */,
 				49A7A7CD22D84E1D0039449E /* Info.plist */,
@@ -278,8 +272,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E902F1235987C800DAE063 /* UpDownCountView.swift in Sources */,
-				49E902EF235987B900DAE063 /* UpDownCountButton.swift in Sources */,
 				490A3BDD234C597D00FCB58B /* ViewController.swift in Sources */,
 				490A3BD8234C589400FCB58B /* Keyboard.swift in Sources */,
 				49A7A7C222D84E1B0039449E /* AppDelegate.swift in Sources */,
