@@ -14,8 +14,8 @@ class ViewController: UIViewController, KeyboardDelegate {
     // MARK:- 変数定義
     
     @IBOutlet var textView: UITextView!
-    
-    @IBOutlet var testLabel: UILabel!
+
+    @IBOutlet var Decoration_Details: UITextView!
     
     // MARK:- override func
     
@@ -27,6 +27,9 @@ class ViewController: UIViewController, KeyboardDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Decoration_Details　は編集不可にする
+//        Decoration_Details.isEditable = false;
         
         //キーボードを隠すやつ
         textView.delegate = self as? UITextViewDelegate
@@ -45,6 +48,12 @@ class ViewController: UIViewController, KeyboardDelegate {
         textView.inputView = keyboardView
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
     // MARK:- その他メソッド
     
     //keyboard delegate protocol　にメソッドを要求
@@ -52,6 +61,13 @@ class ViewController: UIViewController, KeyboardDelegate {
             textView.insertText(character)
         //Bluetoothに送るメソッドを書く予定
         
+    }
+    
+    @IBAction func goBack(_ segue:UIStoryboardSegue) {}
+
+    @IBAction func goNext(_ sender:UIButton) {
+           let next = storyboard!.instantiateViewController(withIdentifier: "nextView")
+           self.present(next,animated: true, completion: nil)
     }
     
 }
