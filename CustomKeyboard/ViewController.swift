@@ -63,8 +63,10 @@ class ViewController: UIViewController, KeyboardDelegate {
         
     }
     
+    //最初の画面に戻る
     @IBAction func goBack(_ segue:UIStoryboardSegue) {}
 
+    //次の画面に遷移する
     @IBAction func goNext(_ sender:UIButton) {
            let next = storyboard!.instantiateViewController(withIdentifier: "nextView")
            self.present(next,animated: true, completion: nil)
