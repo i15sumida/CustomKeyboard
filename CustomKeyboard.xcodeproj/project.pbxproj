@@ -10,6 +10,7 @@
 		490A3BD8234C589400FCB58B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3BD7234C589400FCB58B /* Keyboard.swift */; };
 		490A3BDD234C597D00FCB58B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3BDC234C597D00FCB58B /* ViewController.swift */; };
 		4958E94E233C74540071DF9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4958E94D233C74540071DF9E /* Main.storyboard */; };
+		4959CA9E237E560B003DB43A /* Ble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959CA9D237E560B003DB43A /* Ble.swift */; };
 		49700E24233B2CB6005960DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49700E22233B2CB5005960DF /* LaunchScreen.storyboard */; };
 		49A7A7C222D84E1B0039449E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7A7C122D84E1B0039449E /* AppDelegate.swift */; };
 		49A7A7C922D84E1D0039449E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A7A7C822D84E1D0039449E /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		490A3BD7234C589400FCB58B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		490A3BDC234C597D00FCB58B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4958E94D233C74540071DF9E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4959CA9D237E560B003DB43A /* Ble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ble.swift; sourceTree = "<group>"; };
 		49700E23233B2CB5005960DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../MLDP-Terminal-master/App/Base.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		49A7A7BE22D84E1B0039449E /* CustomKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A7A7C122D84E1B0039449E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,12 +108,13 @@
 			isa = PBXGroup;
 			children = (
 				49A7A7C122D84E1B0039449E /* AppDelegate.swift */,
+				4959CA9D237E560B003DB43A /* Ble.swift */,
+				490A3BDC234C597D00FCB58B /* ViewController.swift */,
 				49E9029B2358376F00DAE063 /* Keyboard.xib */,
 				49C7A8C4234DB17200D6D0F9 /* Keyboard2.xib */,
 				49E902992358265700DAE063 /* Keyboard3.xib */,
 				490A3BD7234C589400FCB58B /* Keyboard.swift */,
 				4958E94D233C74540071DF9E /* Main.storyboard */,
-				490A3BDC234C597D00FCB58B /* ViewController.swift */,
 				49A7A7C822D84E1D0039449E /* Assets.xcassets */,
 				49A7A7CD22D84E1D0039449E /* Info.plist */,
 				49700E22233B2CB5005960DF /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 				490A3BDD234C597D00FCB58B /* ViewController.swift in Sources */,
 				490A3BD8234C589400FCB58B /* Keyboard.swift in Sources */,
 				49A7A7C222D84E1B0039449E /* AppDelegate.swift in Sources */,
+				4959CA9E237E560B003DB43A /* Ble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

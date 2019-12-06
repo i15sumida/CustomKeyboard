@@ -18,10 +18,7 @@ class Keyboard: UIView {
     // MARK:- 変数定義
     
     weak var delegate: KeyboardDelegate?
-    
-    var KeyFlag = 100;
-
-    @IBOutlet var NO: UIButton!
+    var KeyFlag = 200
     
     // MARK:- keyboard 初期化
 
@@ -69,9 +66,6 @@ class Keyboard: UIView {
             if(tagnumber.tag == 0){
                 self.delegate?.keyWasTapped(character: sender.titleLabel!.text!)        //ボタン名を出力
                 
-            }else if(tagnumber.tag == 1){                               //tabキー
-                self.delegate?.keyWasTapped(character: "\t")
-                
             }else if(tagnumber.tag == 2){                               //Returnキー
                 self.delegate?.keyWasTapped(character: "\r\n")
                 
@@ -79,7 +73,7 @@ class Keyboard: UIView {
                 self.delegate?.keyWasTapped(character: " ")
                 
             }else if(tagnumber.tag == 4){                               //Deleteキー
-                
+                self.delegate?.keyWasTapped(character: "")
             }else if(tagnumber.tag == 5){                               //レジスタ(G0)キー
                 self.delegate?.keyWasTapped(character: "GO")
             }
@@ -105,15 +99,15 @@ class Keyboard: UIView {
             }else if(tagnumber.tag == 107){
                 self.delegate?.keyWasTapped(character: "JNZ\t")      //JNZ + tab
             }else if(tagnumber.tag == 108){
-                self.delegate?.keyWasTapped(character: "IN\t")       //IN + tab
-            }else if(tagnumber.tag == 109){
                 self.delegate?.keyWasTapped(character: "PUSH\t")     //PUSH + tab
-            }else if(tagnumber.tag == 110){
+            }else if(tagnumber.tag == 109){
                 self.delegate?.keyWasTapped(character: "POP\t")      //POP + tab
-            }else if(tagnumber.tag == 111){
+            }else if(tagnumber.tag == 110){
                 self.delegate?.keyWasTapped(character: "EI")         //EI
-            }else if(tagnumber.tag == 112){
+            }else if(tagnumber.tag == 111){
                 self.delegate?.keyWasTapped(character: "RET")        //RET
+            }else if(tagnumber.tag == 112){
+                self.delegate?.keyWasTapped(character: "DC\t")       //DC + tab
             }
         }
         //------------------------Keyboard2(tagが200以上)--------------------------//
@@ -191,6 +185,9 @@ class Keyboard: UIView {
     @IBAction func POPF(_ sender: Any) {
         self.delegate?.keyWasTapped(character: "POPF\t")  //POPF + tab
     }
+    @IBAction func EI(_ sender: Any) {
+        self.delegate?.keyWasTapped(character: "DI")      //EI
+    }
     @IBAction func DI(_ sender: Any) {
         self.delegate?.keyWasTapped(character: "DI")      //DI
     }
@@ -227,4 +224,5 @@ class Keyboard: UIView {
     @IBAction func SP_Keyboard3(_ sender: Any) {
         self.delegate?.keyWasTapped(character: "SP")      //SP
     }
+    
 }
