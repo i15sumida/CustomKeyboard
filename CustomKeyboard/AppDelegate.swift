@@ -5,7 +5,7 @@
 //  Created by 住田みらの on 2019/07/12.
 //  Copyright © 2019 住田みらの. All rights reserved.
 //
-//  このプログラムは
+//  このプログラムは最初に動く
 
 import UIKit            // UIパーツを使用するのに必要
 import CoreBluetooth    // Bluetoothを使用するのに必要
