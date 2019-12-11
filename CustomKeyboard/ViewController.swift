@@ -17,7 +17,7 @@ class ViewController: UIViewController, KeyboardDelegate, UITableViewDelegate, U
     @IBOutlet var textView: UITextView!             // TerminalView の部品
     @IBOutlet weak var tableview: UITableView!      // 最初の画面の部品
     @IBOutlet weak var selectview: UITableView!     // 最初の画面の部品
-    @IBOutlet var textView2: UITextView?            // 最初の画面の部品
+    @IBOutlet weak var textLabel: UILabel!               // 最初の画面の部品
     
     // ボタン追加view
     let keyboard = UIStackView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
@@ -47,7 +47,6 @@ class ViewController: UIViewController, KeyboardDelegate, UITableViewDelegate, U
         super.viewDidLoad()
         print("--- viewDidLoad ---")
         BleManager?.setView(self)           // BLEManagerでViewControllerのインスタンスを作成するため
-        textView2?.isEditable = false;      // textView2の編集を不可にする
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,8 +72,8 @@ class ViewController: UIViewController, KeyboardDelegate, UITableViewDelegate, U
     
     // 画面遷移：TerminalView -> 最初の画面
     @IBAction func goFront(_ segue:UIStoryboardSegue) {
+        textLabel.text = "接続したTeC  :  まだ接続されていません"
         BleManager?.bleDevice = nil
-        reload()
     }
 
     // 画面遷移：TerminalView -> nextView(キーボード仕様)
@@ -312,53 +311,36 @@ class ViewController: UIViewController, KeyboardDelegate, UITableViewDelegate, U
     
     /* tableViewに関するメソッド */
     
-    //セルの個数を指定するデリゲートメソッド（必須）
+    //セルの個数を指定するデータソースメソッド（必須）
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        //　tag == 0 の時 tableview, それ以外の時 selectview の処理をする
-        if(tableView.tag == 0){
+
             print("discoveredDevice Count:\(String(describing: BleManager?.bleDevices.count))")
             return (BleManager?.bleDevices.count)!
-            
-        }else{
-            return 1
-        }
+        
     }
     
     //セルに値を設定するデータソースメソッド（必須）
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //　tag == 0 の時 tableview, それ以外の時 selectview の処理をする
-        if(tableView.tag == 0){
             let cell: UITableViewCell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             print("discoveredDevice Name:\(String(describing: BleManager?.bleDevices[indexPath.row].name!))")
             cell.textLabel!.text = BleManager?.bleDevices[indexPath.row].name
             return cell
-            
-        }else{
-            let selectDevice: UITableViewCell = selectview.dequeueReusableCell(withIdentifier: "selectDevice", for: indexPath)
-            if(BleManager?.bleDevice != nil){
-                selectDevice.textLabel!.text = BleManager?.bleDevice.name
-                return selectDevice
-            }else{
-                selectDevice.textLabel!.text = "まだ接続されていません"
-                return selectDevice
-            }
-        }
+
     }
 
     func reload() {
         tableview.reloadData()      //tableviewの再表示
-        selectview.reloadData()     //selectviewの再表示
     }
 
     // デバイスが選択されたとき
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableview のcellのみ処理を行う
-        if(tableView.tag == 0){
             
             // ペリフェラルを登録する
             BleManager?.bleDevice = BleManager?.bleDevices[indexPath.row]
+        
+            //接続したTeCを可視化
+            textLabel.text = "接続したTeC  :  " + (BleManager?.bleDevice.name)!
             
             // ペリフェラルを記憶する
             userDefaults.set(BleManager?.bleDevice?.name!,  forKey: "DeviceName")
@@ -373,7 +355,8 @@ class ViewController: UIViewController, KeyboardDelegate, UITableViewDelegate, U
             // デバイス配列をクリアし元の画面に戻る
             BleManager?.bleDevices = []
             self.dismiss(animated: true, completion: nil)
-        }
+        
     }
     
 }//ViewController
+
