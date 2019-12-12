@@ -317,8 +317,8 @@ func selectDevice(_ centralManager: CBCentralManager) -> CBPeripheral? {
                 DispatchQueue.main.async {             // mainスレッドで
                     writeMessage("")
                 }
-                if 0 < number && number <= (BleManager?.bleDevices.count)! {
-                    return BleManager?.bleDevices[number - 1]  // 決定！！
+                if 0 < number && number <= (bleManager?.bleDevices.count)! {
+                    return bleManager?.bleDevices[number - 1]  // 決定！！
                 } else {
                     DispatchQueue.main.async {         // mainスレッドで
                         writeMessage("\"\(number)\"は選択できません．")
@@ -346,21 +346,21 @@ func writeProcess(_ deviceManager: CBCentralManager) {
             case 0:                                    // 普通の文字だ．
                 if bleState == .inOperation {          // 接続中なら
                   DispatchQueue.main.async {           // mainスレッドで
-                    BleManager?.write(inputCharacter)// BLEに書き込む
+                    bleManager?.write(inputCharacter)// BLEに書き込む
                   }
                 }
             case 2:                                    // ~. だ．
                 if bleState == .inOperation {          // 接続中なら
                    DispatchQueue.main.async {          // mainスレッドで
-                    BleManager?.close()           // TeCに切断を知らせる
+                    bleManager?.close()           // TeCに切断を知らせる
                    }
                 }
                 return
             default:                                   // 興味のない ~ だった
                 if bleState == .inOperation {          // 接続中なら
                    DispatchQueue.main.async {          // mainスレッドで
-                    BleManager?.write("~")        // BLEに書き込む
-                    BleManager?.write(inputCharacter)
+                    bleManager?.write("~")        // BLEに書き込む
+                    bleManager?.write(inputCharacter)
                    }
                 }
             }

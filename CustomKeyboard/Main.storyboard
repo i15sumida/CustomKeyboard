@@ -8,12 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller2-->
         <scene sceneID="u7i-Ct-6Kx">
             <objects>
-                <viewController storyboardIdentifier="TerminalView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zZB-bE-sSm" customClass="ViewController" customModule="CustomKeyboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TerminalView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zZB-bE-sSm" customClass="ViewController2" customModule="CustomKeyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oyi-E0-Nz0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th6-D1-lpU">
@@ -24,17 +24,17 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="goNext:" destination="zZB-bE-sSm" eventType="touchUpInside" id="uhU-4B-e7w"/>
+                                    <action selector="goNext:" destination="zZB-bE-sSm" eventType="touchUpInside" id="o0d-pk-yuI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqe-D3-LLu">
-                                <rect key="frame" x="148" y="15" width="58" height="36"/>
+                                <rect key="frame" x="148" y="15" width="58" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="discon"/>
                                 <connections>
-                                    <segue destination="zM7-eZ-h7N" kind="unwind" unwindAction="goFront:" id="V5s-o5-y1B"/>
+                                    <action selector="goFirst:" destination="zZB-bE-sSm" eventType="touchUpInside" id="FqI-gq-vse"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-vJ-73u">
@@ -44,7 +44,7 @@
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="CustonKey"/>
                                 <connections>
-                                    <action selector="CustomKeyTap:" destination="zZB-bE-sSm" eventType="touchUpInside" id="7DP-uY-vut"/>
+                                    <action selector="CustomKeyTap:" destination="zZB-bE-sSm" eventType="touchUpInside" id="ZLA-pO-xEf"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HBL-zM-53j">
@@ -61,12 +61,14 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="mk8-ej-dnL"/>
                     </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="pBQ-yE-eMR">
+                        <barButtonItem key="backBarButtonItem" title="discon" id="zkT-nw-Nxn"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="textView" destination="HBL-zM-53j" id="mCX-O5-8DT"/>
+                        <outlet property="textview" destination="HBL-zM-53j" id="yIf-It-eMD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh7-zC-QwT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="zM7-eZ-h7N" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="89.505247376311857"/>
         </scene>
@@ -181,7 +183,7 @@ Cg
         <!--View Controller-->
         <scene sceneID="ckE-JV-yos">
             <objects>
-                <viewController id="B3y-sR-jOw" customClass="ViewController" customModule="CustomKeyboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstView" id="B3y-sR-jOw" customClass="ViewController" customModule="CustomKeyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="epK-Je-Pyv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,7 +206,7 @@ Cg
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="B3y-sR-jOw" id="oPw-Vb-iTa"/>
-                                    <outlet property="delegate" destination="B3y-sR-jOw" id="xrn-b7-dyo"/>
+                                    <outlet property="delegate" destination="B3y-sR-jOw" id="XQc-2M-lMm"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vb-Ry-qBd">
@@ -243,9 +245,11 @@ Cg
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="10Y-sB-VJL"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PWX-DH-aXS"/>
                     <connections>
                         <outlet property="tableview" destination="oji-iF-2N5" id="9YT-To-2ad"/>
                         <outlet property="textLabel" destination="HwO-Sg-7RU" id="rDP-xB-wbV"/>
+                        <segue destination="zZB-bE-sSm" kind="show" identifier="toTerminal" id="Uy0-OD-hDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxX-2X-euZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

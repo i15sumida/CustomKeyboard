@@ -17,6 +17,7 @@
 		49A7A7D722D84E1D0039449E /* CustomKeyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7A7D622D84E1D0039449E /* CustomKeyboardTests.swift */; };
 		49A7A7E222D84E1D0039449E /* CustomKeyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7A7E122D84E1D0039449E /* CustomKeyboardUITests.swift */; };
 		49C7A8C5234DB17200D6D0F9 /* Keyboard2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C7A8C4234DB17200D6D0F9 /* Keyboard2.xib */; };
+		49E3426323A097ED0075D97D /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3426223A097ED0075D97D /* ViewController2.swift */; };
 		49E9029A2358265700DAE063 /* Keyboard3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E902992358265700DAE063 /* Keyboard3.xib */; };
 		49E9029C2358376F00DAE063 /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E9029B2358376F00DAE063 /* Keyboard.xib */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		49A7A7E122D84E1D0039449E /* CustomKeyboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboardUITests.swift; sourceTree = "<group>"; };
 		49A7A7E322D84E1D0039449E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C7A8C4234DB17200D6D0F9 /* Keyboard2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Keyboard2.xib; sourceTree = "<group>"; };
+		49E3426223A097ED0075D97D /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		49E902992358265700DAE063 /* Keyboard3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Keyboard3.xib; sourceTree = "<group>"; };
 		49E9029B2358376F00DAE063 /* Keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Keyboard.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				49A7A7C122D84E1B0039449E /* AppDelegate.swift */,
 				4959CA9D237E560B003DB43A /* Ble.swift */,
 				490A3BDC234C597D00FCB58B /* ViewController.swift */,
+				49E3426223A097ED0075D97D /* ViewController2.swift */,
 				49E9029B2358376F00DAE063 /* Keyboard.xib */,
 				49C7A8C4234DB17200D6D0F9 /* Keyboard2.xib */,
 				49E902992358265700DAE063 /* Keyboard3.xib */,
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E3426323A097ED0075D97D /* ViewController2.swift in Sources */,
 				490A3BDD234C597D00FCB58B /* ViewController.swift in Sources */,
 				490A3BD8234C589400FCB58B /* Keyboard.swift in Sources */,
 				49A7A7C222D84E1B0039449E /* AppDelegate.swift in Sources */,

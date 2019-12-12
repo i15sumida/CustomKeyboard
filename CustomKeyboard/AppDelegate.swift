@@ -10,7 +10,7 @@
 import UIKit            // UIパーツを使用するのに必要
 import CoreBluetooth    // Bluetoothを使用するのに必要
 
-var BleManager: BLEManager?     //グローバル変数　Ble.swift や ViewController でも使用可
+var bleManager: BLEManager?     //グローバル変数　Ble.swift や ViewController でも使用可
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
