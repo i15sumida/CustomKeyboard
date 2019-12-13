@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="TerminalView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zZB-bE-sSm" customClass="ViewController2" customModule="CustomKeyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oyi-E0-Nz0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th6-D1-lpU">
@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqe-D3-LLu">
-                                <rect key="frame" x="148" y="15" width="58" height="34"/>
+                                <rect key="frame" x="148" y="15" width="58" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,9 +61,6 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="mk8-ej-dnL"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="pBQ-yE-eMR">
-                        <barButtonItem key="backBarButtonItem" title="discon" id="zkT-nw-Nxn"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="textview" destination="HBL-zM-53j" id="yIf-It-eMD"/>
                     </connections>
@@ -226,7 +223,7 @@ Cg
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Terminal"/>
                                 <connections>
-                                    <action selector="goTerminal:" destination="B3y-sR-jOw" eventType="touchUpInside" id="BVK-6M-GOZ"/>
+                                    <action selector="goTerminal:" destination="B3y-sR-jOw" eventType="touchUpInside" id="3fY-oX-3ZM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="接続したTeC ： まだ接続されていません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwO-Sg-7RU">
@@ -245,11 +242,9 @@ Cg
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="10Y-sB-VJL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PWX-DH-aXS"/>
                     <connections>
                         <outlet property="tableview" destination="oji-iF-2N5" id="9YT-To-2ad"/>
                         <outlet property="textLabel" destination="HwO-Sg-7RU" id="rDP-xB-wbV"/>
-                        <segue destination="zZB-bE-sSm" kind="show" identifier="toTerminal" id="Uy0-OD-hDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxX-2X-euZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

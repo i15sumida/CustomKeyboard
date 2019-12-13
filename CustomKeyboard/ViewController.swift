@@ -50,7 +50,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             present(alert, animated: true, completion: nil)
             
         }else{
-           self.performSegue(withIdentifier: "toTerminal", sender: self)
+           let next = storyboard!.instantiateViewController(withIdentifier: "TerminalView")
+           self.present(next,animated: true, completion: nil)
         }
     }
     

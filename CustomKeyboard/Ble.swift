@@ -12,9 +12,9 @@ import UIKit            // UIパーツを使用するのに必要
 import CoreBluetooth    // Bluetoothを使用するのに必要
 
 // MLDPのサービスのUUID
-let target_service_uuid = CBUUID(string:"00035B03-58E6-07DD-021A-08123A000300")
-let target_charactaristic_uuid = CBUUID(string: "00035B03-58E6-07DD-021A-08123A000301")
-let target_charactaristic_uuid2 = CBUUID(string: "00035B03-58E6-07DD-021A-08123A0003FF")
+let target_service_uuid = CBUUID(string:"00035B03-58E6-07DD-021A-08123A000300")                // Service
+let target_charactaristic_uuid = CBUUID(string: "00035B03-58E6-07DD-021A-08123A000301")        // Read Write Notify indicate
+//let target_charactaristic_uuid2 = CBUUID(string: "00035B03-58E6-07DD-021A-08123A0003FF")     // Read Write
 
 // 文字列をターミナルから入力する
 func readFromTerminal() -> String {
@@ -166,6 +166,7 @@ class BLEManager:  NSObject, CBCentralManagerDelegate{
     // サービス発見時に呼ばれる
     func peripheral(_ peripheral: CBPeripheral,
                     didDiscoverServices error: Error?) {
+        print("--- サービス発見時に呼ばれる peripheral() ---")
         
         guard error == nil else {
             print(error.debugDescription)
@@ -186,6 +187,8 @@ class BLEManager:  NSObject, CBCentralManagerDelegate{
     func peripheral(_ peripheral: CBPeripheral,
                     didDiscoverCharacteristicsFor service: CBService,
                     error: Error?) {
+        print("--- キャラクタリスティック発見時に呼ばれる peripheral() ---")
+        
         guard error == nil else {
             writeMessage(error.debugDescription)
             return
@@ -218,6 +221,8 @@ class BLEManager:  NSObject, CBCentralManagerDelegate{
     func peripheral(_ peripheral: CBPeripheral,
               didUpdateNotificationStateFor characteristic: CBCharacteristic,
               error: Error?) {
+        print("--- Notify開始／停止時に呼ばれる peripheral() ---")
+        
         guard error == nil else {
             writeMessage(error.debugDescription)
             return
@@ -228,6 +233,8 @@ class BLEManager:  NSObject, CBCentralManagerDelegate{
     func peripheral( _ peripheral: CBPeripheral,
               didUpdateValueFor characteristic: CBCharacteristic,
               error: Error?) {
+        print("--- データ更新時に呼ばれる peripheral() ---")
+        
         guard error == nil else {
             if characteristic.value != nil {           // このifは，なぜか必要
                 writeMessage("\(error.debugDescription)")
@@ -243,6 +250,8 @@ class BLEManager:  NSObject, CBCentralManagerDelegate{
     func peripheral(_ peripheral: CBPeripheral,
                     didWriteValueFor characteristic: CBCharacteristic,
                     error: Error?) {
+        print("--- データ書き込みが完了すると呼ばれる peripheral() ---")
+        
         if error != nil {
             writeMessage("""
                Write failed...error: \(error.debugDescription), \
@@ -255,13 +264,14 @@ class BLEManager:  NSObject, CBCentralManagerDelegate{
 
     // サービス開始
     func activate() {
+        print("--- サービス開始 activate() ---")
         bleDevice?.discoverServices([target_service_uuid])
     }
 
     // デバイスにデータを送信する
-    func write(_ inputCharacter : Character) {
+    func write(_ inputString : String) {
         bleDevice.writeValue(
-            String(inputCharacter).data(using: String.Encoding.utf8)!,
+            inputString.data(using: String.Encoding.utf8)!,
             for: outputCharacteristic,
             type: CBCharacteristicWriteType.withResponse
         )
@@ -346,7 +356,7 @@ func writeProcess(_ deviceManager: CBCentralManager) {
             case 0:                                    // 普通の文字だ．
                 if bleState == .inOperation {          // 接続中なら
                   DispatchQueue.main.async {           // mainスレッドで
-                    bleManager?.write(inputCharacter)// BLEに書き込む
+                    //bleManager?.write(inputCharacter)// BLEに書き込む
                   }
                 }
             case 2:                                    // ~. だ．
@@ -360,7 +370,7 @@ func writeProcess(_ deviceManager: CBCentralManager) {
                 if bleState == .inOperation {          // 接続中なら
                    DispatchQueue.main.async {          // mainスレッドで
                     bleManager?.write("~")        // BLEに書き込む
-                    bleManager?.write(inputCharacter)
+                   // bleManager?.write(inputCharacter)
                    }
                 }
             }
