@@ -66,7 +66,7 @@ class ViewController2: UIViewController, KeyboardDelegate{
     // 画面遷移：TerminalView -> firstView
 
     @IBAction func goFirst(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "toFirst", sender: self)
     }
     
     // 画面遷移：TerminalView -> nextView(キーボード仕様)

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th6-D1-lpU">
-                                <rect key="frame" x="34" y="18" width="77" height="39"/>
+                                <rect key="frame" x="34" y="29" width="77" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <state key="normal" title="キー仕様">
@@ -27,18 +27,8 @@
                                     <action selector="goNext:" destination="zZB-bE-sSm" eventType="touchUpInside" id="o0d-pk-yuI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqe-D3-LLu">
-                                <rect key="frame" x="148" y="15" width="58" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="discon"/>
-                                <connections>
-                                    <action selector="goFirst:" destination="zZB-bE-sSm" eventType="touchUpInside" id="FqI-gq-vse"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-vJ-73u">
-                                <rect key="frame" x="245" y="20" width="96" height="36"/>
+                                <rect key="frame" x="245" y="31" width="96" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,21 +38,33 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HBL-zM-53j">
-                                <rect key="frame" x="0.0" y="52" width="375" height="426"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="426"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqe-D3-LLu">
+                                <rect key="frame" x="152" y="22" width="58" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="discon"/>
+                                <connections>
+                                    <action selector="goFirst:" destination="zZB-bE-sSm" eventType="touchUpInside" id="FqI-gq-vse"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <accessibility key="accessibilityConfiguration" label="CustomTextField"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="mk8-ej-dnL"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ELh-qf-saq"/>
                     <connections>
                         <outlet property="textview" destination="HBL-zM-53j" id="yIf-It-eMD"/>
+                        <segue destination="B3y-sR-jOw" kind="presentation" identifier="toFirst" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="nQE-EO-6Np"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh7-zC-QwT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -134,7 +136,7 @@
                                         <fragment content="　">
                                             <attributes>
                                                 <color key="NSColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" metaFont="message" size="11"/>
+                                                <font key="NSFont" metaFont="menu" size="11"/>
                                             </attributes>
                                         </fragment>
                                         <fragment>
@@ -242,9 +244,11 @@ Cg
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="10Y-sB-VJL"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vpm-Nb-gU8"/>
                     <connections>
                         <outlet property="tableview" destination="oji-iF-2N5" id="9YT-To-2ad"/>
                         <outlet property="textLabel" destination="HwO-Sg-7RU" id="rDP-xB-wbV"/>
+                        <segue destination="zZB-bE-sSm" kind="presentation" identifier="toTerminal" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="xM7-wJ-bcp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxX-2X-euZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
